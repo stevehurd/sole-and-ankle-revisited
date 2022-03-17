@@ -7,6 +7,7 @@ import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 import { QUERIES } from "../../constants";
 import Icon from "../Icon/";
+import VisuallyHidden from "../VisuallyHidden/";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -34,12 +35,15 @@ const Header = () => {
         <SideMobile>
           <IconButton>
             <Icon id="shopping-bag" />
+            <VisuallyHidden>Open Cart</VisuallyHidden>
           </IconButton>
           <IconButton>
             <Icon id="search" />
+            <VisuallyHidden>Open Search</VisuallyHidden>
           </IconButton>
           <IconButton>
             <Icon id="menu" />
+            <VisuallyHidden>Open Menu</VisuallyHidden>
           </IconButton>
         </SideMobile>
       </MainHeader>
@@ -61,6 +65,11 @@ const MainHeader = styled.div`
 
   @media ${QUERIES.tabletAndDown} {
     border-top: 3px solid ${COLORS.gray[900]};
+    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    padding: 16px;
   }
 `;
 
@@ -83,6 +92,11 @@ const SideMobile = styled.div`
 
   @media ${QUERIES.tabletAndDown} {
     display: flex;
+    gap: 24px;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 0;
   }
 `;
 
